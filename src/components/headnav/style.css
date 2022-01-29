@@ -1,0 +1,60 @@
+.header {
+    position: fixed;
+    height: 80px;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    background-color: white;
+    z-index: 1;
+
+}
+
+.navigation {
+    padding-top: 25px;
+    padding-left: 40px;
+    width: 25%;
+    float: left;
+    display: inline;
+}
+
+.navigation-item {
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+    width: 80px;
+    color: black;
+    text-transform: uppercase;
+}
+
+.navigation-item-selected {
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+    width: 80px;
+    color: green;
+    text-transform: uppercase;
+    border-bottom: 3px solid green;
+    border-bottom-width: 2px;
+    padding-bottom: 10px;
+}
+.brand-icon {
+    display: inline;
+    position: relative;
+    text-align: center;
+    margin-left: 20%;
+    width: 100%;
+    top: 15px;
+}
+.modals {
+    margin-top: 25px;
+    margin-right: 60px;
+    float: right;
+}
+.modal-currency {
+    display: inline-block;
+    width: 50px;
+}
+.modal-basket {
+    display: inline-block;
+    width: 50px;
+}

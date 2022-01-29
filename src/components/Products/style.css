@@ -1,0 +1,21 @@
+.container {
+    display: grid;
+    padding-top: 40px;
+    margin-left: 10%;
+    margin-right: 5%;
+    grid-template-columns: 30% 30% 30%;
+    column-gap: 5%;
+    row-gap: 60px;
+
+
+}
+
+.category-title {
+    margin-top: 100px;
+    margin-left: 50px;
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 42px;
+    line-height: 160%;
+}

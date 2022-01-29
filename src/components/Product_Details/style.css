@@ -1,0 +1,139 @@
+.container-details {
+    display: grid;
+    padding-top: 100px;
+    margin-left: 10%;
+    grid-template-columns: 15% 440px 28%;
+    row-gap: 60px;
+    text-align: left;
+}
+
+.small-pictures-container {
+    width: 10%;
+    height: 100%;
+}
+
+
+.product-thumb {
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+}
+
+.selected-pictured-container {
+    width: 20%;
+    height: 100%;
+}
+
+.selected-picture {
+    /* width: 100; */
+    /* position: relative; */
+    width: 400px;
+    height: 400px;
+}
+
+.product-details-container {
+    text-align: left;
+}
+
+.product-details-brand {
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    padding-bottom: 10px;
+    line-height: 27px;
+
+}
+
+.product-details-name {
+
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 27px;
+    /* identical to box height, or 90% */
+
+}
+
+.attribute-container {
+    padding-top: 10px;
+}
+
+.attribute-name {
+    font-family: Roboto Condensed;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 18px;
+    /* identical to box height, or 100% */
+    color: #1D1F22;
+    margin-bottom: 10px;
+}
+
+.attribute-item {
+    text-align: center;
+    width: 200px;
+    height: 200px;
+    display: inline;
+    border: 1px  solid  #1D1F22;
+    cursor: pointer;
+    margin-right: 10px;
+    padding:6px 18px;
+}
+
+.attribute-item-selected {
+    border: 3px solid #1D1F22;
+}
+
+.attribute-price-title {
+    font-family: Roboto Condensed;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 18px;
+    /* identical to box height, or 100% */
+    color: #1D1F22;
+    margin-bottom: 5px;
+    padding-top: 10px;
+}
+
+.product-details-price {
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 18px;
+    /* or 75% */
+
+    display: flex;
+    align-items: center;
+}
+
+.button-container {
+    margin-top: 30px;
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.cart-button {
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: 600;
+    top: 16px;
+    position: relative;
+    font-size: 16px;
+    color: #FFFFFF;
+}
+
+.description {
+    margin-top: 20px;
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 159.96%;
+    color: #1D1F22;
+}
