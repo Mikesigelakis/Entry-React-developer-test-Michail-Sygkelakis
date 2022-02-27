@@ -1,0 +1,43 @@
+.click-left{
+    z-index: 10;
+    position: absolute;
+    /* position: relative; */
+    top: 30%;
+    left: 180px;
+    border-top: 20px solid transparent;
+    border-left: 10px solid grey;
+    border-bottom: 20px solid transparent;
+}
+
+.click-right{
+    z-index: 10;
+    position: absolute;
+    /* position: relative; */
+    top: 30%;
+    left: 10px;
+    border-top: 20px solid transparent;
+    border-right: 10px solid grey;
+    border-bottom: 20px solid transparent;
+}
+
+.item {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    top: 60%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+
+  .image_item{
+    width: 200px;
+    height: 200px;
+    position: relative;
+    top: 40%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+   
+ 

@@ -2,9 +2,8 @@
    position: relative;
    /* Stay in place */
    float: right;
-   width: 100px;
+   width: 30px;
    left: 50px;
-   transition-delay: 1s;
 
 
  }
@@ -15,6 +14,7 @@
    font-style: normal;
    font-weight: 500;
    font-size: 25px;
+   width: 100px;
  }
 
  /* Modal Content/Box */
@@ -26,12 +26,25 @@
    font-size: 18px;
    position: relative;
    top: 5px;
-
+  width: 100px;
  }
 
 
  .currency-choice {
    cursor: pointer;
    width: 80px;
-   height: 22px;
+   height: 40px;
+  position: relative;
+  padding-top: 12px;
+  padding-left: 5px;
+  }
+
+ .currency-choice:hover{
+   background-color: blanchedalmond;
+ }
+
+ .arrow-image{
+   width: 10px;
+   margin-left: 10px;
+   padding-bottom: 3px;
  }

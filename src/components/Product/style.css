@@ -1,4 +1,6 @@
- 
+
+
+
 .product-in {
     /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); */
     width: 300px;
@@ -56,7 +58,18 @@
 .price {
     font-family: Raleway;
     font-style: normal;
-    font-weight: 1000;
+    font-weight: 500;
     font-size: 18px;
      text-align: left;
+}
+
+.direct-buy{
+    position: relative;
+    bottom:40px;
+    left: 200px;
+    cursor: pointer; 
+}
+
+.navlink-no-decoration{
+    text-decoration: none;
 }

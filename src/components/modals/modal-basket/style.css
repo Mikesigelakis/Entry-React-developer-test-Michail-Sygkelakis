@@ -6,6 +6,12 @@
   height: 8px;
 }
 
+.svg-basket{
+  width: 23px;
+}
+
+
+
 .circle {
   background: black;
   border-radius: 50%;
@@ -50,12 +56,20 @@
   right: 90px;
 }
 
+.visibleModal{
+  display: inline;
+}
+
+.invisibleModal{
+  display: none;
+}
+
 .bagTitle {
   font-family: Raleway;
-  font-style: normal;
   font-size: 25px;
   line-height: 160%;
   color: #1D1F22;
+  font-weight: "bold";
   padding-bottom: 20px;
 }
 

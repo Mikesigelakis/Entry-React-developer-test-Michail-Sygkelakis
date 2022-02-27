@@ -8,7 +8,7 @@ const initState = {
 }
 
 
-const basket = (state = initState, action) => {
+const cart = (state = initState, action) => {
     let product_Exists
     switch (action.type) {
         case ADD_PRODUCT_IN_CART:
@@ -49,4 +49,4 @@ const basket = (state = initState, action) => {
     }
 }
 
-export default basket
+export default cart

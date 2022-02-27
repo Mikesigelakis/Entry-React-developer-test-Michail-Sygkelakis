@@ -1,72 +1,107 @@
-import React, { Component } from 'react';
-import './style.css'
-import { connect } from 'react-redux';
-import arrow_up from "../../../assets/svgs/arrow-up.svg"
-import arrow_down from "../../../assets/svgs/arrow-down.svg"
-import { change_currency } from '../../../redux/actions/Currencies';
-import { Currencies } from '../../../assets/data/currencies';
-
-
+import React, { Component } from "react";
+import "./style.css";
+import { connect } from "react-redux";
+import arrow_up from "../../../assets/svgs/arrow-up.svg";
+import arrow_down from "../../../assets/svgs/arrow-down.svg";
+import { change_currency } from "../../../redux/actions/Currencies";
 
 class ModalCurrency extends Component {
+  constructor() {
+    super();
+    this.state = {
+      showModal: false,
+      currencies: [],
+    };
+  }
 
+  componentDidMount() {
+    this.setState({ currencies: this.props.currencies });
+  }
 
-    constructor() {
-        super()
-        this.state = {
-            visibleModal: false
-        }
+  handleClick = () => {
+    if (!this.state.showModal) {
+      document.addEventListener("click", this.handleOutsideClick, false);
+    } else {
+      document.removeEventListener("click", this.handleOutsideClick, false);
     }
 
-    openModal() {
-        this.setState({ visibleModal: !this.state.visibleModal })
-    }
+    this.setState((prevState) => ({
+      showModal: !prevState.showModal,
+    }));
+  };
 
+  handleOutsideClick = (e) => {
+    if (!this.node.contains(e.target)) this.handleClick();
+  };
 
+  getCurrencies() {
+    return this.state.currencies.map((currency) => {
+      return (
+        <div
+          key={currency.symbol}
+          className="currency-choice"
+          onClick={() => {
+            this.setState({ visibleModal: false });
+            this.props.change_currency(currency.symbol);
+          }}
+        >
+          {" "}
+          {currency.symbol + " " + currency.label}{" "}
+        </div>
+      );
+    });
+  }
 
-    render() {
+  getRightPositionArrow() {
+    return this.state.showModal ? (
+      <img className="arrow-image" src={arrow_up} alt={"Arrow up"}></img>
+    ) : (
+      <img className="arrow-image" src={arrow_down} alt={"Arrow down"}></img>
+    );
+  }
 
-        const prices =
-            Currencies.map((currency) => {
-                return (
-                    <div key={currency.symbol} className='currency-choice' onClick={() => {
-                        this.setState({ visibleModal: false })
-                        this.props.change_currency(currency.symbol)
-                    }
-                    }> {currency.symbol + ' ' + currency.label} </div>
-                )
-            })
+  showCurrencies(currencies) {
+    return this.state.showModal ? (
+      <div className="">
+        <div className="modal-content">{currencies}</div>
+      </div>
+    ) : (
+      <></>
+    );
+  }
 
-        return (
-            <div>
-                <div className='modal-currency-button' onClick={() => this.openModal()}>
-                    {this.props.currencies.symbol}
-                    {this.state.visibleModal ? (
-                        <img src={arrow_up} alt={'Arrow up'}></img>
+  render() {
+    const currencies = this.getCurrencies();
+    const arrowPosition = this.getRightPositionArrow();
+    const showCurrencies = this.showCurrencies(currencies);
 
-                    ) : <img src={arrow_down} alt={'Arrow down'}></img>}
-                </div>
-                {this.state.visibleModal ? (
-                    <div className=''>
-                        <div className="modal-content">
-                            {prices}
-                        </div>
-                    </div>
-                ) : <div></div>}
-            </div>
-
-        );
-    }
+    return (
+      <div
+        ref={(node) => {
+          this.node = node;
+        }}
+      >
+        <div
+          className="modal-currency-button"
+          onClick={() => this.handleClick()}
+        >
+          {this.props.currencies[0].symbol}
+          {arrowPosition}
+        </div>
+        {showCurrencies}
+      </div>
+    );
+  }
 }
 
-const mapStateToProps = (state) => {
-    return {
-        currencies: state.currencies,
-    }
-}
+const mapStateToProps = ({ currencies }) => {
+  return {
+    currencies: currencies.currencies,
+  };
+};
 
 const mapDispatchToProps = (dispatch) => ({
-    change_currency: (id) => dispatch(change_currency(id))
-})
+  change_currency: (id) => dispatch(change_currency(id)),
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(ModalCurrency);
