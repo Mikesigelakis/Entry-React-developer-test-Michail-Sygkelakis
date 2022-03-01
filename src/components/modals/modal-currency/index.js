@@ -41,7 +41,7 @@ class ModalCurrency extends Component {
           key={currency.symbol}
           className="currency-choice"
           onClick={() => {
-            this.setState({ visibleModal: false });
+            this.handleClick()
             this.props.change_currency(currency.symbol);
           }}
         >

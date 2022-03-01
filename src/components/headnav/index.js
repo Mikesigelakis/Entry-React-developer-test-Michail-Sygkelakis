@@ -16,8 +16,7 @@ class Headnav extends Component {
             "navigation-item" + (!isActive ? " " : "-selected")
           }
           to={"/" + item.name}
-          style={{ textDecoration: "none" }}
-        >
+         >
           <div>{item.name}</div>
         </NavLink>
       );

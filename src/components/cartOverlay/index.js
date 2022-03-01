@@ -10,6 +10,7 @@ class CartOverlay extends Component {
  
     return (
       <div className="container_cart_overlay">
+            <div className="cart-title">Cart</div>
             <ProductsCartOverlay/>
       </div>
     );

@@ -12,6 +12,8 @@ class ArrowImage extends Component {
     this.onClickLeft = this.onClickLeft.bind(this);
   }
 
+  
+
   onClickLeft() {
     if (this.state.selectedImageIndex > 0) {
       this.setState((prevState) => ({
@@ -32,11 +34,11 @@ class ArrowImage extends Component {
     let arrows = [];
     if (this.state.selectedImageIndex > 0)
       arrows.push(
-        <div className="click-left" onClick={this.onClickLeft}></div>
+        <div key={0} className="click-right" onClick={this.onClickLeft}></div>
       );
     if (this.state.selectedImageIndex < this.props.images.length - 1) {
       arrows.push(
-        <div className="click-right" onClick={this.onClickRight}></div>
+        <div key={1}  className="click-left" onClick={this.onClickRight}></div>
       );
     }
     return arrows;

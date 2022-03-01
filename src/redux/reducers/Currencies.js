@@ -31,7 +31,7 @@ const currencies = (state = initState, action) => {
       );
       const selected_currency = state.currencies[index_in_array];
       state.currencies = state.currencies.filter(
-        (item, key) => key != index_in_array
+        (item, key) => key !== index_in_array
       );
       state.currencies.unshift(selected_currency);
       return Object.assign({}, state);

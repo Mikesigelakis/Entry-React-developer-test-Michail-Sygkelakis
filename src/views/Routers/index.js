@@ -7,10 +7,11 @@ import Cart from "../pages/cart";
 
 class Routers extends Component {
   getFetchedRouters() {
-    const fetchedRouters = this.props.categories.map((category) => {
+    const fetchedRouters = this.props.categories.map((category,index) => {
       return (
         <Route
-          path={"/" + category.name}
+          path={"/" + category.name} 
+          key = {index}
           render={() => <Category category={category.name} />}
         />
       );

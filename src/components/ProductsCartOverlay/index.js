@@ -7,7 +7,7 @@ import {
 import Price from "../../utils/Price";
 import ArrowImage from "../ArrowImage";
 import "./style.css";
-
+ 
 class ProductsCartOverlay extends Component {
   renderProducts() {
     return this.props.cart.products.map((item, index) => {
@@ -16,13 +16,15 @@ class ProductsCartOverlay extends Component {
           const attribute_items = attribute.items.map((item, index) => {
             const background_color = attribute.id === "Color" ? item.value : "";
             const text = attribute.id === "Color" ? "" : item.value;
+            const attribute_color = attribute.id === "Color" ?"basket_attribute_item_color" : "basket_attribute_item"
+
             return (
               <div
                 key={index}
                 className={
                   item.selected === true
-                    ? "basket_attribute_item attribute_item_selected"
-                    : "basket_attribute_item"
+                    ? `${attribute_color}  attribute_item_selected`
+                    :  attribute_color
                 }
                 style={{ backgroundColor: background_color }}
               >
@@ -70,7 +72,7 @@ class ProductsCartOverlay extends Component {
               -
             </div>
           </div>
-          <ArrowImage images = {item.details.gallery}/>
+          <ArrowImage   images = {item.details.gallery}/>
         </div>
       );
     });

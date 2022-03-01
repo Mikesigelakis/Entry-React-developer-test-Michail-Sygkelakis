@@ -48,7 +48,7 @@
 .modalContent {
   background-color: #fefefe;
   padding: 20px;
-  width: 400px;
+  width: 500px;
   max-height: calc(100vh - 250px);
   overflow-y: auto;
   float: right;
@@ -82,31 +82,45 @@
 
 }
 
-.product_brand {
+.basket_product_brand {
   font-family: Raleway;
   font-style: normal;
   font-weight: 300;
-  font-size: 20px;
+  font-size: 16px;
   line-height: 160%;
-  color: #1D1F22;
+  display: flex;
+  align-items: center;
 }
 
-.product_name {
+.basket_product_name {
   font-family: Raleway;
-  font-style: normal;
-  font-weight: 300;
-  font-size: 20px;
-  line-height: 160%;
+font-style: normal;
+font-weight: 300;
+font-size: 16px;
+line-height: 160%;
   color: #1D1F22;
 }
 
+.basket_product_price{
+  font-family: Raleway;
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 160%;
+/* identical to box height, or 26px */
+ 
 
-.item {
+color: #1D1F22;
+}
+
+.item_picture {
   position: relative;
   top: 40%;
   -webkit-transform: translateY(-50%);
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
+  width: 100px;
+  height: 100px;
 }
 
 
@@ -125,6 +139,14 @@
 .attribute_item_selected {
   border: 2px solid #1D1F22;
   opacity: 1;
+}
+
+.basket_attribute_item_color {
+  width: 25px;
+  height: 25px;
+  margin-left: 5px;
+  margin-right: 10px;
+  display: inline-block;
 }
 
 .basket_attribute_name {
@@ -168,6 +190,7 @@
   cursor: pointer;
   width: 10px;
   padding: 2px 10px;
+  /* z-index: 10; */
 }
 
 

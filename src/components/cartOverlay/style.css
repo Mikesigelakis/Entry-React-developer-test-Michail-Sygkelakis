@@ -5,6 +5,24 @@
     padding-top: 200px;  
     background-color: #fefefe;
     width: 100%;
-    /* overflow-y: auto; */
+    /* overflo
+    w-y: auto; */
    }
+
+   .cart-title{
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 40px;
+    /* identical to box height, or 125% */
+    
+    text-transform: uppercase;
+    
+    color: #1D1F22;
+    position: relative;
+    bottom:100px;
+    left:50px
+
+  }
   

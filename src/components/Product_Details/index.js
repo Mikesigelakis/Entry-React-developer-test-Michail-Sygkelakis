@@ -45,13 +45,15 @@ class Product_Details extends Component {
       const attribute_items = attribute.items.map((item, index) => {
         const background_color = attribute.id === "Color" ? item.value : "";
         const text = attribute.id === "Color" ? "" : item.value;
+        const attribute_color = attribute.id === "Color" ?"attribute-item-color" : "attribute-item "
+
         return (
           <div
             key={index}
             className={
               item.selected === true
-                ? "attribute-item attribute-item-selected"
-                : "attribute-item"
+                ? `${attribute_color} attribute-item-selected`
+                :  `${attribute_color}`
             }
             style={{ backgroundColor: background_color }}
             onClick={() => this.onChangeAttribute(attribute.id, item.id)}

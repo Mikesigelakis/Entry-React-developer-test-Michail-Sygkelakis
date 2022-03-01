@@ -10,27 +10,22 @@ import Price from "../../../utils/Price";
 import "./style.css";
 
 class ModalBasket extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       showModal: false,
     };
   }
 
-  handleClick = () => {
-    if (!this.state.showModal) {
-      document.addEventListener("click", this.handleOutsideClick, false);
-    } else {
-      document.removeEventListener("click", this.handleOutsideClick, false);
+  handleClick = (e) => {
+    if (
+      e.target.className !== "item_plus" &&
+      e.target.className !== "item_minus"
+    ) {
+      this.setState((prevState) => ({
+        showModal: !prevState.showModal,
+      }));
     }
-
-    this.setState((prevState) => ({
-      showModal: !prevState.showModal,
-    }));
-  };
-
-  handleOutsideClick = (e) => {
-    if (!this.node.contains(e.target) & this.state.showModal) this.handleClick();
   };
 
   getProducts() {
@@ -40,13 +35,15 @@ class ModalBasket extends Component {
           const attribute_items = attribute.items.map((item, index) => {
             const background_color = attribute.id === "Color" ? item.value : "";
             const text = attribute.id === "Color" ? "" : item.value;
+            const attribute_color = attribute.id === "Color" ?"basket_attribute_item_color" : "basket_attribute_item"
+
             return (
               <div
                 key={index}
                 className={
                   item.selected === true
-                    ? "basket_attribute_item attribute_item_selected"
-                    : "basket_attribute_item"
+                    ? `${attribute_color} attribute_item_selected`
+                    :  attribute_color
                 }
                 style={{ backgroundColor: background_color }}
               >
@@ -69,9 +66,9 @@ class ModalBasket extends Component {
       return (
         <div key={index} className="product_detals_container">
           <div>
-            <div className="product_brand">{item.details.brand}</div>
-            <div className="product_name">{item.details.name}</div>
-            <div className="product_price">{product_price}</div>
+            <div className="basket_product_brand">{item.details.brand}</div>
+            <div className="basket_product_name">{item.details.name}</div>
+            <div className="basket_product_price">{product_price}</div>
             <div>{product_attributes}</div>
           </div>
           <div className="count_container">
@@ -92,8 +89,7 @@ class ModalBasket extends Component {
           <div>
             <img
               src={item.details.gallery[0]}
-              style={{ width: 100, height: 100 }}
-              className="item"
+              className="item_picture"
               alt={item.details.gallery[0]}
             ></img>
           </div>
@@ -104,10 +100,10 @@ class ModalBasket extends Component {
 
   getCountofProducts() {
     let count = 0;
-   this.props.cart.products.forEach((product) => {
+    this.props.cart.products.forEach((product) => {
       count = count + product.count;
     });
-    return count
+    return count;
   }
 
   render() {
@@ -116,28 +112,32 @@ class ModalBasket extends Component {
       1,
       this.props.currency
     );
-    const count = this.getCountofProducts()
-    const products = this.getProducts()
-    const showModalBasket = this.state.showModal? "visibleModal":"invisibleModal" 
+    const count = this.getCountofProducts();
+    const products = this.getProducts();
+    const showModalBasket = this.state.showModal
+      ? "visibleModal"
+      : "invisibleModal";
     return (
       <div
         ref={(node) => {
           this.node = node;
         }}
       >
-        <div className="modal-basket-button" onClick={() => this.handleClick()}>
-          <img src={empty_cart} alt={"Basket"} className="svg-basket" ></img>
+        <div
+          className="modal-basket-button"
+          onClick={(e) => this.handleClick(e)}
+        >
+          <img src={empty_cart} alt={"Basket"} className="svg-basket"></img>
           <div className="circle"> {count}</div>
         </div>
         {this.state.showModal ? (
           <div
             className={"modalBasket " + showModalBasket}
-            onClick={() => this.setState({ showModal: false })}
+            onClick={this.handleClick}
           >
             <div className="modalContent">
               <div className="bagTitle">
-                <span>My Bag,</span> {count}{" "}
-                items
+                <span>My Bag,</span> {count} items
               </div>
               {count === 0 ? (
                 <div className="empty_basket">Basket is empty...</div>
@@ -150,12 +150,7 @@ class ModalBasket extends Component {
               </div>
               <div className="buttons_container">
                 <NavLink to="/cart">
-                  <div
-                    className="view_bag_button"
-                    onClick={() => this.setState({ showModal: false })}
-                  >
-                    VIEW BAG
-                  </div>
+                  <div className="view_bag_button">VIEW BAG</div>
                 </NavLink>
                 <div className="checkout_button">CHECKOUT</div>
               </div>

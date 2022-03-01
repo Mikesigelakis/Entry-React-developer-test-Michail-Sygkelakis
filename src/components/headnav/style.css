@@ -22,8 +22,19 @@
     text-decoration: none;
     text-align: center;
     width: 80px;
-    color: black;
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 120%;
+    /* identical to box height, or 19px */
+    
+    text-align: center;
     text-transform: uppercase;
+    
+    /* --c-text */
+    
+    color: #1D1F22;
 }
 
 .navigation-item-selected {
@@ -31,11 +42,16 @@
     text-decoration: none;
     text-align: center;
     width: 80px;
-    color: green;
+    color:  #5ECE7B;;
     text-transform: uppercase;
-    border-bottom: 3px solid green;
+    border-bottom: 3px solid  #5ECE7B;;
     border-bottom-width: 2px;
-    padding-bottom: 10px;
+    padding-bottom: 20px;
+    font-family: Raleway;
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 120%;
 }
 .brand-icon {
     display: inline;

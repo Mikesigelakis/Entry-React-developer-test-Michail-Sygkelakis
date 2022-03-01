@@ -25,15 +25,14 @@ class Product extends Component {
         <NavLink
           className="navlink-no-decoration"
           to={"pdp/" + this.props.product.id}
-          style={{ textDecoration: "none" }}
-        >
+         >
           <img
             src={this.props.product.gallery[0]}
             alt={this.props.product.gallery[0]}
-            className="product-image"
+            className="product-image" 
           ></img>
         </NavLink>
-
+ 
         <div className="title">
           {this.props.product.brand + " " + this.props.product.name}{" "}
         </div>
@@ -43,7 +42,7 @@ class Product extends Component {
             className="direct-buy"
             onClick={() => this.props.add_product_in_cart(this.props.product)}
           >
-            <img src={direct_cart}></img>
+            <img src={direct_cart} alt ={direct_cart}></img>
           </div>
         ) : (
           ""

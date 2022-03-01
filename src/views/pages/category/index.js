@@ -5,28 +5,30 @@ import "./style.css";
 import { createBrowserHistory } from "history";
 import { get_products } from "../../../redux/actions";
 import Loading from "../../../components/loading";
+import { capitalizeFirstLetter } from "../../../utils/Strings";
 
 class Category extends Component {
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.category !== this.props.category) {
       const history = createBrowserHistory();
       const pathname = history.location.pathname.replace("/", "");
-      {
-        pathname === "/"
-          ? this.props.get_products("all")
-          : this.props.get_products(pathname);
-      }
+       if ( pathname === "/"){
+        this.props.get_products("all")
+       }else{
+        this.props.get_products(pathname);
+       }
+      
     }
   }
 
   componentDidMount() {
     const history = createBrowserHistory();
     const pathname = history.location.pathname.replace("/", "");
-    {
-      pathname === "/"
-        ? this.props.get_products("all")
-        : this.props.get_products(pathname);
-    }
+    if ( pathname === "/"){
+      this.props.get_products("all")
+     }else{
+      this.props.get_products(pathname);
+     }
   }
 
   render() {
@@ -44,9 +46,11 @@ class Category extends Component {
         </div>
       );
     }
+
+
     return (
       <>
-        <div className="category-title">{this.props.category}</div>
+        <div className="category-title">{capitalizeFirstLetter(this.props.category)} </div>
         <Products />
       </>
     );
